@@ -32,7 +32,7 @@ public class LoginController {
         if (login == null) {
             // 登录失败，打印失败信息
             System.out.println("登录失败：用户名或密码错误");
-            model.addAttribute("error", "用户名或密码错误"); // 传递错误消息到前端
+            model.addAttribute("error", "Incorrect username or password."); // 传递错误消息到前端
             return "login"; // 返回登录页面
         } else {
             System.out.println("登录成功");
