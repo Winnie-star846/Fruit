@@ -1,0 +1,83 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
+ 
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+/* Header */
+header {
+    background: #4CAF50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+ 
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+ 
+/* Fruits Section */
+.fruits-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+ 
+.fruit-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px); /* Adjust for gap */
+    margin: 10px;
+    transition: transform 0.3s;
+    cursor: pointer; /* New line to make cards clickable */
+}
+ 
+.fruit-card:hover {
+    transform: translateY(-10px);
+}
+
+ 
+.fruit-card h2 {
+    margin: 20px 0 10px;
+    font-size: 1.5em;
+    text-align: center;
+}
+ 
+.fruit-card p {
+    padding: 0 20px;
+    text-align: center;
+}
+ 
+/* Footer */
+footer {
+    background: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+ 
+footer p {
+    margin: 0;
+}
