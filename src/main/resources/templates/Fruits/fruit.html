@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Detail</title>
+  <style>
+
+  body {
+      font-family: Arial, sans - serif;
+      margin: 0;
+      padding: 0;
+    }
+  
+  .h-b-c{
+    background-color: #f8f8f8;
+    padding: 10px;
+  }
+  
+  .h-b{
+    display: inline - block;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .m-i-c {
+    position: relative;
+    text-align: center;
+  }
+  
+  .m-i-c img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .m-i-t {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .p-c {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space - around;
+    padding: 20px;
+    align-items: stretch;
+     flex-basis: 33.33%;
+  }
+
+  
+  .p-t {
+    width: 300px;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .p-i {
+    width: 100%;
+     text-align: center;
+     margin: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     border:1px solid #ccc;
+     padding: 10px;
+     box-sizing: border-box;
+     border-radius: 5px;
+  }
+  
+  .n-b {
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 0%;
+  }
+  
+  .n-b a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 10px;
+  }
+
+  footer {
+  width: 100%;
+  background: #727272;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 40px;
+  }
+        
+  footer p {
+    margin: 0;
+   }
+  </style>
+</head>
+
+<body>
+  <div class="h-b-c">
+    <a th:href="@{/home}" class="h-b">Back to Homepage</a>
+  </div>
+  <div class="m-i-c">
+    <img src="/pictures/水果.jpg" alt="Fruits">
+    <h1 class="m-i-t">Fruit Name</h1>
+    <span style="font-size: 48px;" th:text="${fruit.fruit_name ?: 'No information available'}"></span>
+  </div>
+  <div class="p-c">
+    <div class="p-i">
+      <h2>Function</h2>
+      <p><span th:text="${fruit.functions ?: 'No information available'}"></span></p>
+    </div>
+    <div class="p-i">
+      <h2>Season</h2>
+      <p><span th:text="${fruit.season ?: 'No information available'}"></span></p>
+    </div>
+    <div class="p-i">
+      <h2>Type</h2>
+      <p><span th:text="${fruit.type ?: 'No information available'}"></span></p>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p>&copy; 24 Fruit Baby</p>
+    </div>
+  </footer>
+</body>
+
+</html>

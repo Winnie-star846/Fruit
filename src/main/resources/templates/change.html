@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Change User Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 0px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .m-in {
+      padding: 40px;
+    }
+
+  .h-b-c {
+      margin-bottom: 30px;
+      background-color: #f8f8f8;
+      padding: 10px;
+    }
+
+  .h-b {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      width: 100%;
+        background: #727272;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+  .error-message {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="h-b-c">
+    <a th:href="@{/home}" class="h-b">Back to Homepage</a>
+  </div>
+  <div class="m-in">
+    <h1>Change User Information</h1>
+
+    <div th:if="${error != null}" class="error-message">
+      <p th:text="${error}"></p>
+    </div>
+
+    <div th:if="${session.userId == null}" class="alert">
+      <p>You must be logged in to change your information. <a th:href="@{/login}">Go to Login</a></p>
+    </div>
+
+
+
+
+    <form th:if="${session.userId != null}" th:action="@{/change}" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="user_id" th:value="${session.userId}">
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter new username" required><br>
+
+      <label for="userpwd">User Password:</label>
+      <input type="text" id="userpwd" name="userpwd" placeholder="Enter new user password" required><br>
+
+      <label for="signature">Signature:</label>
+      <textarea id="signature" name="signature" placeholder="Enter new signature" required></textarea><br>
+
+      <label for="file">Avatar:</label>
+      <input type="file" id="file" name="file" accept="image/*"><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+    <script src="script.js"></script>
+  <footer>
+    <div class="container">
+      <p>&copy; 24 Fruit Baby</p>
+    </div>
+  </footer>
+</body>
+
+</html>

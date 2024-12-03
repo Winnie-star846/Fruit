@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper  3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxt.Fruit_Web.dao.UserDao">
+    <insert id="addUsers">
+        insert into users(username,userpwd)
+                values (#{username},#{userpwd})
+    </insert>
+    <update id="updUserpwd">
+        update users set userpwd=#{userpwd}
+                    WHERE user_id=#{user_id}
+    </update>
+    <update id="updUsername">
+        update users set username=#{username}
+                    WHERE user_id=#{user_id}
+    </update>
+    <update id="setUserSig">
+        update users set signature=#{signature}
+                    WHERE user_id=#{user_id}
+    </update>
+    <update id="setUserImg">
+        update users set img=#{img}
+        WHERE user_id=#{user_id}
+    </update>
+    <select id="login" resultType="com.sxt.Fruit_Web.pojo.Users">
+        SELECT * FROM users WHERE username=#{username} AND userpwd=#{userpwd}
+    </select>
+    <select id="getByName" resultType="com.sxt.Fruit_Web.pojo.Users">
+        SELECT * FROM users WHERE username=#{username}
+    </select>
+
+    <select id="getUsersName" resultType="java.lang.String">
+        SELECT username FROM users WHERE user_id=#{user_id}
+    </select>
+    <select id="getIdByName" resultType="java.lang.Integer">
+        SELECT user_id FROM users WHERE username=#{username}
+    </select>
+    <select id="getUsersSig" resultType="java.lang.String">
+        SELECT signature FROM users WHERE username=#{username}
+    </select>
+    <select id="getUsersimg" resultType="java.lang.String">
+        SELECT img FROM users WHERE username=#{username}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper  3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxt.Fruit_Web.dao.FruitDao">
+
+    <select id="getByFruitName" resultType="com.sxt.Fruit_Web.pojo.Fruit">
+        SELECT * FROM fruit WHERE fruit_name=#{fruit_name}
+    </select>
+
+
+
+
+</mapper>
